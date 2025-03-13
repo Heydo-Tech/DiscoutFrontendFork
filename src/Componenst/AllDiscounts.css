@@ -1,0 +1,42 @@
+.container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .loading, .error, .no-discounts {
+    font-size: 18px;
+    color: #d9534f;
+  }
+  
+  .discount-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .discount-table th, .discount-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .discount-table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .discount-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .discount-table tr:hover {
+    background-color: #ddd;
+  }
+  
