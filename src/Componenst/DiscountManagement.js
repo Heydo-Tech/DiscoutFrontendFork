@@ -23,7 +23,7 @@ const DiscountManagement = () => {
     }
 
     try {
-      await axios.post("http://localhost:5009/api/discounts/add", {
+      await axios.post("https://warehouse.apnimandi.us/api/api/discounts/add", {
         barcode: barcode || null,
         sku: sku || null,
         discountType,
@@ -56,7 +56,7 @@ const DiscountManagement = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:5009/api/discounts/product/${barcode || ""}/${sku || ""}`
+        `https://warehouse.apnimandi.us/api/api/discounts/product/${barcode || ""}/${sku || ""}`
       );
       setProductDiscount(response.data);
     } catch (err) {
@@ -73,7 +73,7 @@ const DiscountManagement = () => {
 
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:5009/api/discounts/all");
+      const response = await axios.get("https://warehouse.apnimandi.us/api/api/discounts/all");
       setAllDiscounts(response.data);
     } catch (err) {
       setError("Failed to fetch discounts");

@@ -31,8 +31,8 @@ const AddDiscount = () => {
       // Check if identifier is a barcode (numeric) or an SKU (alphanumeric)
       const isBarcode = /^\d+$/.test(identifier);
       const url = isBarcode
-        ? `http://localhost:5009/api/inventory/barcode/${identifier}`
-        : `http://localhost:5009/api/inventory/sku/${identifier}`;
+        ? `https://warehouse.apnimandi.us/api/api/inventory/barcode/${identifier}`
+        : `https://warehouse.apnimandi.us/api/api/inventory/sku/${identifier}`;
 
       const response = await axios.get(url);
 
@@ -65,7 +65,7 @@ const AddDiscount = () => {
     const sku = isBarcode ? null : identifier;
 
     try {
-      await axios.post("http://localhost:5009/api/discounts/add", {
+      await axios.post("https://warehouse.apnimandi.us/api/api/discounts/add", {
         barcode,
         sku,
         discountType,

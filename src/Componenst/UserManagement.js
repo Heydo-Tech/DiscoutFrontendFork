@@ -9,7 +9,7 @@ const UserManagement = () => {
   const handleCreateUser = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5009/api/admin/users', { name, password, role });
+      await axios.post('https://warehouse.apnimandi.us/api/api/admin/users', { name, password, role });
       alert('User created successfully');
     } catch (error) {
       alert('Failed to create user');

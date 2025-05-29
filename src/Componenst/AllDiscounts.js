@@ -16,7 +16,7 @@ const AllDiscounts = () => {
     setLoading(true);
 
     try {
-      const response = await axios.get("http://localhost:5009/api/discounts/all");
+      const response = await axios.get("https://warehouse.apnimandi.us/api/api/discounts/all");
       setAllDiscounts(response.data);
     } catch (err) {
       setError("Failed to fetch discounts");

@@ -23,7 +23,7 @@ const GetDiscount = () => {
 
     try {
       setLoading(true);
-      const response = await axios.get(`http://localhost:5009/api/discounts/product/${barcode || ""}/${sku || ""}`);
+      const response = await axios.get(`https://warehouse.apnimandi.us/api/api/discounts/product/${barcode || ""}/${sku || ""}`);
       setProductDiscount(response.data);
     } catch (err) {
       setError(err.response?.data?.message || "Discount not found");

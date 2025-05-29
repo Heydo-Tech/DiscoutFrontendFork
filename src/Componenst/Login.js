@@ -10,7 +10,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5009/api/auth/login', { name, password });
+      const response = await axios.post('https://warehouse.apnimandi.us/api/api/auth/login', { name, password });
       localStorage.setItem('token', response.data.token);
       console.log(response);
       navigate('/add-discount');
