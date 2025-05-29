@@ -17,6 +17,7 @@ const AddDiscount = () => {
   // Function to fetch product details
   const fetchProductDetails = async () => {
     setError("");
+    console.log(inventory);
     setProduct(null);
     setInventory(null);
 
