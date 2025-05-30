@@ -16,11 +16,11 @@ const Login = () => {
     e.preventDefault();
     setErrorMessage('');
     try {
-      // const response = await axios.post('https://warehouse.apnimandi.us/api/api/auth/login', {
-      //   name: formData.name,
-      //   password: formData.password,
-      // });
-      // localStorage.setItem('token', response.data.token);
+      const response = await axios.post('https://warehouse.apnimandi.us/api/api/auth/login', {
+        name: formData.name,
+        password: formData.password,
+      });
+      localStorage.setItem('token', response.data.token);
 
       navigate('/navbar');
       
