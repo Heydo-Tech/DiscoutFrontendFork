@@ -83,7 +83,7 @@ const AddDiscount = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100">
+    <div className="min-h-screen flex items-center justify-center bg-orange-100">
       <div className="w-full mt-4 mb-4 max-w-md bg-white rounded-2xl shadow-xl p-8">
         <div className="flex justify-center mb-6">
           <img
@@ -109,7 +109,7 @@ const AddDiscount = () => {
               type="text"
               placeholder="Enter Barcode or SKU"
               value={identifier}
-              onChange={(e) => setIdentifier(e.target.value)}
+              onChange={(e) => setIdentifier(e.target.value.toUpperCase())}
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-green-600 focus:border-green-600"
             />
           </div>
@@ -153,14 +153,13 @@ const AddDiscount = () => {
               <option value="fixed">Fixed Amount</option>
             </select>
           </div>
-
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              Discount Value
+              {discountType === 'percentage' ? 'Discount Percentage' : 'Final Amount'}
             </label>
             <input
               type="number"
-              placeholder="Discount Value"
+              placeholder={discountType === 'percentage' ? 'Enter Discount Percentage' : 'Enter Final Amount'}
               value={discountValue}
               onChange={(e) => setDiscountValue(e.target.value)}
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-green-600 focus:border-green-600"
