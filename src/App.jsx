@@ -1,19 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './Componenst/ Navbar';
-import Login from './Componenst/Login';
-import UserManagement from './Componenst/UserManagement';
-import './styles/styles.css';
-import AddDiscount from './Componenst/AddDiscount';
-import GetDiscount from './Componenst/GetDiscount';
-import AllDiscounts from './Componenst/AllDiscounts';
+import Navbar from './Components/Navbar';
+import Login from './Components/Login';
+import UserManagement from './Components/UserManagement';
+import AddDiscount from './Components/AddDiscount';
+import GetDiscount from './Components/GetDiscount';
+import AllDiscounts from './Components/AllDiscounts';
 
 const App = () => {
   return (
     <Router>
-      <Navbar />
+      
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/navbar" element={<Navbar />} />
         <Route path="/admin" element={<UserManagement />} />
         <Route path="/add-discount" element={<AddDiscount />} />
         <Route path="/get-discount" element={<GetDiscount />} />
