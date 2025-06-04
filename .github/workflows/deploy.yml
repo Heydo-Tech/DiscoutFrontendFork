@@ -31,10 +31,10 @@ jobs:
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
             nvm use v22.7.0 # Use the specific Node.js version you need
 
-            cd /root/discount.apnimandi.us/DiscoutFrontend
-            git pull https://${{ secrets.TOKEN }}:${{ secrets.TOKEN }}@github.com/Heydo-Tech/DiscoutFrontend.git
+            cd /root/discount.apnimandi.us/DiscoutFrontendFork
+            git pull https://${{ secrets.TOKEN }}:${{ secrets.TOKEN }}@github.com/Heydo-Tech/DiscoutFrontendFork.git
             npm install --force
             npm run build
-            rm -rf /var/www/DiscoutFrontend/build
-            mv /root/discount.apnimandi.us/DiscoutFrontend/build /var/www/DiscoutFrontend/
+            rm -rf /var/www/DiscoutFrontendFork/build
+            mv /root/discount.apnimandi.us/DiscoutFrontendFork/build /var/www/DiscoutFrontendFork/
             systemctl restart nginx
