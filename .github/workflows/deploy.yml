@@ -36,6 +36,6 @@ jobs:
             git pull https://${{ secrets.TOKEN }}:${{ secrets.TOKEN }}@github.com/Heydo-Tech/DiscoutFrontendFork.git
             npm install --force
             npm run build
-            rm -rf /var/www/DiscoutFrontendFork/build
-            mv /root/discount.apnimandi.us/DiscoutFrontendFork/build /var/www/DiscoutFrontendFork/
+            rm -rf /var/www/DiscoutFrontendFork
+            mv /root/discount.apnimandi.us/DiscoutFrontendFork/dist /var/www/DiscoutFrontendFork
             systemctl restart nginx
