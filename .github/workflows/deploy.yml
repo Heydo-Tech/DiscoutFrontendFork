@@ -33,9 +33,10 @@ jobs:
             nvm use v22.7.0 # Use the specific Node.js version you need
 
             cd /root/discount.apnimandi.us/DiscoutFrontendFork
+            git restore .
             git pull https://${{ secrets.TOKEN }}:${{ secrets.TOKEN }}@github.com/Heydo-Tech/DiscoutFrontendFork.git
             npm install --force
             npm run build
-            rm -rf /var/www/DiscoutFrontendFork
+            rm -rf /var/www/DiscoutFrontendFork/dist
             mv /root/discount.apnimandi.us/DiscoutFrontendFork/dist /var/www/DiscoutFrontendFork
             systemctl restart nginx
