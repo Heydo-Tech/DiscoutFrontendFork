@@ -4,11 +4,29 @@ import { useNavigate } from 'react-router-dom';
 
 const AddDiscount = () => {
   const navigate = useNavigate();
+
+  // Calculate default dates for Saturday and Sunday of the current week
+  const today = new Date();
+  const dayOfWeek = today.getDay(); // 0 = Sunday, 6 = Saturday
+  const daysToSaturday = dayOfWeek === 6 ? 0 : 6 - dayOfWeek;
+  const saturday = new Date(today);
+  saturday.setDate(today.getDate() + daysToSaturday);
+  const sunday = new Date(saturday);
+  sunday.setDate(saturday.getDate() + 1);
+
+  // Format dates as YYYY-MM-DD
+  const formatDate = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
   const [identifier, setIdentifier] = useState('');
-  const [discountType, setDiscountType] = useState('percentage');
+  const [discountType, setDiscountType] = useState('Final Amount');
   const [discountValue, setDiscountValue] = useState('');
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
+  const [startDate, setStartDate] = useState(formatDate(saturday));
+  const [endDate, setEndDate] = useState(formatDate(sunday));
   const [error, setError] = useState('');
   const [product, setProduct] = useState(null);
   const [inventory, setInventory] = useState(null);
@@ -73,8 +91,8 @@ const AddDiscount = () => {
       alert('Discount added successfully');
       setIdentifier('');
       setDiscountValue('');
-      setStartDate('');
-      setEndDate('');
+      setStartDate(formatDate(saturday)); // Reset to current week's Saturday
+      setEndDate(formatDate(sunday)); // Reset to current week's Sunday
       setProduct(null);
       setInventory(null);
     } catch (err) {
@@ -149,17 +167,17 @@ const AddDiscount = () => {
               onChange={(e) => setDiscountType(e.target.value)}
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-green-600 focus:border-green-600"
             >
-              <option value="percentage">Percentage</option>
-              <option value="fixed">Fixed Amount</option>
+              <option value="Final Amount">Final Amount</option>
+              <option value="Discount Percentage">Discount Percentage</option>
             </select>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              {discountType === 'percentage' ? 'Discount Percentage' : 'Final Amount'}
+              {discountType === 'Final Amount' ? 'Final Amount' : 'Discount Percentage'}
             </label>
             <input
               type="number"
-              placeholder={discountType === 'percentage' ? 'Enter Discount Percentage' : 'Enter Final Amount'}
+              placeholder={discountType === 'Final Amount' ? 'Enter Final Amount' : 'Enter Discount Percentage'}
               value={discountValue}
               onChange={(e) => setDiscountValue(e.target.value)}
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-green-600 focus:border-green-600"
