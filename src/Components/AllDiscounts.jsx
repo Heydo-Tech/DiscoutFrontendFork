@@ -54,7 +54,7 @@ const AllDiscounts = () => {
             <tbody>
               {allDiscounts.map((discount) => (
                 <tr key={discount._id} className="hover:bg-gray-100 even:bg-gray-50">
-                  <td className="p-3 border-b">{discount.productName}</td>
+                  <td className="p-3 border-b">{discount.product.productName ?? ''}</td>
                   <td className="p-3 border-b">{discount.discountType}</td>
                   <td className="p-3 border-b">{discount.discountValue}</td>
                   <td className="p-3 border-b">
