@@ -23,7 +23,7 @@ const AddDiscount = () => {
   };
 
   const [identifier, setIdentifier] = useState('');
-  const [discountType, setDiscountType] = useState('Final Amount');
+  const [discountType, setDiscountType] = useState('fixed');
   const [discountValue, setDiscountValue] = useState('');
   const [startDate, setStartDate] = useState(formatDate(saturday));
   const [endDate, setEndDate] = useState(formatDate(sunday));
@@ -167,17 +167,17 @@ const AddDiscount = () => {
               onChange={(e) => setDiscountType(e.target.value)}
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-green-600 focus:border-green-600"
             >
-              <option value="Final Amount">Final Amount</option>
-              <option value="Discount Percentage">Discount Percentage</option>
+              <option value="fixed">Fixed</option>
+              <option value="percentage">Percentage</option>
             </select>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              {discountType === 'Final Amount' ? 'Final Amount' : 'Discount Percentage'}
+              {discountType === 'fixed' ? 'fixed' : 'percentage'}
             </label>
             <input
               type="number"
-              placeholder={discountType === 'Final Amount' ? 'Enter Final Amount' : 'Enter Discount Percentage'}
+              placeholder={discountType === 'fixed' ? 'Enter fixed' : 'Enter percentage'}
               value={discountValue}
               onChange={(e) => setDiscountValue(e.target.value)}
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-green-600 focus:border-green-600"
